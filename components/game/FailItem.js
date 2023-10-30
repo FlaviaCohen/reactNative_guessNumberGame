@@ -1,11 +1,20 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, useWindowDimensions } from "react-native";
 import Colors from "../../constants/colors";
 
 const FailItem = ({ round, guess }) => {
+  const { width } = useWindowDimensions();
+
+  const responsive = {
+    padding: width <= 400 ? 6 : 12,
+    marginVertical: width <= 400 ? 6 : 8,
+  };
+
+  const fontSize = width <= 400 ? 10 : 16;
+
   return (
-    <View style={styles.item}>
-      <Text style={styles.text}>#{round}</Text>
-      <Text>Opponent's Guess: {guess}</Text>
+    <View style={[styles.item, responsive]}>
+      <Text style={[styles.text, { fontSize }]}>#{round}</Text>
+      <Text style={[styles.text, { fontSize }]}>Opponent's Guess: {guess}</Text>
     </View>
   );
 };
@@ -17,8 +26,6 @@ const styles = StyleSheet.create({
     borderColor: Colors.primary800,
     borderWidth: 1,
     borderRadius: 40,
-    padding: 12,
-    marginVertical: 8,
     backgroundColor: Colors.accent500,
     flexDirection: "row",
     justifyContent: "space-between",

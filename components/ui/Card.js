@@ -1,8 +1,11 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, useWindowDimensions } from "react-native";
 import Colors from "../../constants/colors";
 
 const Card = ({ children }) => {
-  return <View style={styles.card}>{children}</View>;
+  const { width } = useWindowDimensions();
+
+  const marginTop = width <= 400 ? 18 : 36;
+  return <View style={[styles.card, { marginTop }]}>{children}</View>;
 };
 
 export default Card;
@@ -11,7 +14,6 @@ const styles = StyleSheet.create({
   card: {
     padding: 16,
     marginHorizontal: 24,
-    marginTop: 36,
     backgroundColor: Colors.primary800,
     borderRadius: 8,
     // box-shadow for android

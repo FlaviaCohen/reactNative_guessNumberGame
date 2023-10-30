@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useFonts } from "expo-font";
-import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  ImageBackground,
+  SafeAreaView,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import StartGame from "./screens/StartGame";
 import { LinearGradient } from "expo-linear-gradient";
